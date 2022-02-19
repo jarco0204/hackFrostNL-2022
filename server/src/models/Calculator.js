@@ -31,7 +31,7 @@ export class Calculator {
             return data[0] - data[1];
         } else if (data[2] == "multiplication") {
             return data[0] * data[1];
-        } else if (data[2] == "dvision") {
+        } else if (data[2] == "division") {
             return data[0] / data[1];
         } else {
             console.log("error wrong operation");
