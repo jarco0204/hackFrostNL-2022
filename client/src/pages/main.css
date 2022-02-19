@@ -1,0 +1,36 @@
+.center{
+    text-align: center;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+}
+
+.operation{
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-evenly;
+
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 50px;
+
+}
+#button1{
+    background-color: aquamarine;
+    height: 55px;
+    width: 100px;
+}
+#button2{
+    background-color: goldenrod;
+    height: 55px;
+    width: 100px;
+}
