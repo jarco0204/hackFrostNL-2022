@@ -2,17 +2,16 @@ import { Calculator } from "../models/Calculator.js"; // Named exports
 
 /**
  * Handles GET operations to /example/test
- * @param {*} req.body.userID
- * @param {*} res
+ * @return {*} string with answer
  */
 export const getAnswer = async (req, res) => {
     console.log("GET Request received: ", req.body); // Prints in server log
 
     //Interact with your Model ;)
-    let message = await Calculator.test();
-    console.log(message);
+    let answer = await Calculator.performOperation();
+    // console.log(answer);
     res.status(202).send({
-        messageSent: message,
+        result: answer,
     });
 };
 

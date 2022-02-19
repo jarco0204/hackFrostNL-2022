@@ -10,8 +10,33 @@ export class Calculator {
      * @param {*}
      * @param {*}
      */
-    static async test() {
-        return "Hello World from Core REST API";
+    static async performOperation() {
+        let file = "./src/models/input.txt";
+        // Check that the file exists locally
+        if (!fs.existsSync(file)) {
+            console.log("File not found, call post first");
+            return;
+        }
+
+        let data = fs.readFileSync(file, "utf-8").split("\n");
+        data[0] = parseInt(data[0]);
+        data[1] = parseInt(data[1]);
+
+        // console.log(data);
+
+        //Do operation
+        if (data[2] == "add") {
+            return data[0] + data[1];
+        } else if (data[2] == "subtraction") {
+            return data[0] - data[1];
+        } else if (data[2] == "multiplication") {
+            return data[0] * data[1];
+        } else if (data[2] == "dvision") {
+            return data[0] / data[1];
+        } else {
+            console.log("error wrong operation");
+            return;
+        }
     }
 
     /**
