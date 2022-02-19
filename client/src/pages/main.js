@@ -1,4 +1,6 @@
 import { useState } from "react";
+import axios from "axios";
+
 
 import './main.css';
 
@@ -13,11 +15,38 @@ const CalculatorPage  = () => {
 
 
 
-    // let APIURL = "http://localhost:8000";
+    let APIURL = "http://localhost:8000/example/test";
 
     // HANDLERS
     const sendData = () =>{
         console.log(number1Input,number2Input, operationInput)
+        axios({
+            method:"POST",
+            url: APIURL,
+            data:{
+                var1: number1Input,
+                var2: number2Input,
+                operation: operationInput
+            }
+        });
+        console.log("successfully sent")
+        
+    }
+
+    const getData = () =>{
+        
+        axios({
+            method: 'get',
+            url: APIURL,
+            headers: {},
+            data:{
+                message:"hellow"
+            }
+        }).then(resp =>{
+            // setAnswer()
+            console.log(resp.data.result);
+            setAnswer(resp.data.result)
+        })
     }
 
     const handleInputChange = (event) => {
@@ -65,7 +94,7 @@ const CalculatorPage  = () => {
                 <button id="button1" type="button" onClick={sendData}>POST Inputs to Server</button>
             </div>
             <div>
-                <button id="button2" type="button">GET Output</button>
+                <button id="button2" type="button" onClick={getData}>GET Output</button>
             </div>
         </div>
         <h3>Result:</h3>
